@@ -1,8 +1,8 @@
 {
     "version": 2,
-    "functions": {
-      "api/**/*.java": {
-        "runtime": "vercel-java"
+    "build": {
+      "env": {
+        "JAVA_HOME": "corretto8"  
       }
     }
   }
