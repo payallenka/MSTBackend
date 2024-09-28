@@ -7,7 +7,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/mst")
+@RequestMapping("/")
 public class MstController {
 
     private final MstAlgorithm mstAlgorithm;
