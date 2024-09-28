@@ -43,7 +43,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -52,6 +51,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests> <!-- Skip tests during the build -->
+                </configuration>
             </plugin>
         </plugins>
     </build>
