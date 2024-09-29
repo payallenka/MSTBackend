@@ -1,15 +1,32 @@
 package com.mstSimulator.MST.Example;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/mst")
 public class MstController {
 
-    @GetMapping("/")
-    public String home() {
-        return "Welcome to the MST API!";
+    private final MstAlgorithm mstAlgorithm;
+
+    public MstController() {
+        this.mstAlgorithm = new MstAlgorithm();
+    }
+
+    // Request body model to accept input
+    static class GraphInput {
+        public int V;
+        public List<int[]> edges;
+    }
+
+    @PostMapping
+    public int getMst(@RequestBody GraphInput input) {
+        return mstAlgorithm.calculateMst(input.V, input.edges);
     }
 }
+
+
+
